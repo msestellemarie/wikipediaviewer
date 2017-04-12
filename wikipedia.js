@@ -26,19 +26,16 @@ function searchResults(){
 
 function randomArticle(){
   $(".random").click(function(){
-    //switch to one request using extracts, if possible
-    $.getJSON("https://en.wikipedia.org/w/api.php?action=query&format=json&list=random&rnnamespace=0&rnlimit=5&callback=?", function(random){
-      $(".title-random").html("<a target='_blank' href='https://en.wikipedia.org/wiki/" + random.query.random[0].title + "'>" + random.query.random[0].title + "</a>");
-      $.getJSON("https://en.wikipedia.org//w/api.php?action=query&format=json&prop=extracts&titles=" + random.query.random[0].title + "&exchars=140&exlimit=max&exintro=1&explaintext=1&callback=?", function(result){
-        $(".content-random").html(result.query.pages[Object.keys(result.query.pages)[0]].extract);
-        $(".random-pg").show();
-        $(".c1").hide();
-        $(".c2").hide();
-        $(".c3").hide();
-        $(".c4").hide();
-        $(".c5").hide();
-        $("input:text").val("");
-      });
+    $.getJSON("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&list=&generator=random&utf8=1&exchars=140&exintro=1&explaintext=1&grnnamespace=0&callback=?", function(random){
+      $(".title-random").html("<a target='_blank' href='https://en.wikipedia.org/wiki/" + random.query.pages[Object.keys(random.query.pages)[0]].title + "'>" + random.query.pages[Object.keys(random.query.pages)[0]].title + "</a>");
+      $(".content-random").html(random.query.pages[Object.keys(random.query.pages)[0]].extract);
+      $(".random-pg").show();
+      $(".c1").hide();
+      $(".c2").hide();
+      $(".c3").hide();
+      $(".c4").hide();
+      $(".c5").hide();
+      $("input:text").val("");
     });
   });
 }
