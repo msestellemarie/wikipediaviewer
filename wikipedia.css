@@ -53,6 +53,7 @@ button {
 body {
   background: linear-gradient(180deg, #f3b56b, #a32c68);
   font-family: Roboto, sans-serif;
+  color: #636c72;
 }
 
 a {
@@ -67,8 +68,4 @@ a:hover {
 a:visited {
   color: #a32c68;
   font-decoration: none;
-}
-
-body {
-  color: #636c72;
 }
