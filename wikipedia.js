@@ -17,11 +17,13 @@ function searchResults(){
           $(".c3").hide();
           $(".c4").hide();
           $(".c5").hide();
+          $(".random-pg").hide();
+          $(".container").css("display","flex");
           $("input:text").val("");
         }
         else{
           $(".header").hide();
-          $(".container").css("justify-content","");
+          $(".container").css("display","block");
           var count = 1;
           for(var each in result.query.pages){
             $(".title"+count).html("<a target='_blank' href='https://en.wikipedia.org/wiki/" + result.query.pages[each].title.replace(/'/g,"&apos;") + "'>" + result.query.pages[each].title + "</a>");
@@ -41,7 +43,7 @@ function searchResults(){
       $(".c3").hide();
       $(".c4").hide();
       $(".c5").hide();
-      $(".container").css("justify-content","center");
+      $(".container").css("display","flex");
       $(".header").show();
     }
   });
@@ -58,7 +60,7 @@ function randomArticle(){
       $(".c3").hide();
       $(".c4").hide();
       $(".c5").hide();
-      $(".container").css("justify-content","");
+      $(".container").css("display","block");
       $("input:text").val("");
       $(".btn-outline-primary").blur();
     });
@@ -71,7 +73,7 @@ function randomArticle(){
       $(".c4").hide();
       $(".c5").hide();
       $(".random-pg").hide();
-      $(".container").css("justify-content","center");
+      $(".container").css("display","flex");
     }
   });
 }
@@ -83,7 +85,7 @@ $(document).ready(function(){
   $(".c4").hide();
   $(".c5").hide();
   $(".random-pg").hide();
-  $(".container").css("justify-content","center");
+  $(".container").css("display","flex");
   $(".header").show();
   searchResults();
   randomArticle();
